@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'palette.css';
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Gelion', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Poppins', sans-serif;
+  /* color: var(--font); */
+}
+
+.row {
+  @apply flex justify-center items-center;
+}
+
+.row-h {
+  @apply flex justify-center;
+}
+
+.row-v {
+  @apply flex items-center;
+}
+
+.row-end {
+  @apply flex justify-end;
+}
+
+.col-v {
+  @apply flex justify-center flex-col;
+}
+
+.col-h {
+  @apply flex items-center flex-col;
+}
+
+.inline-h {
+  @apply inline-flex justify-center;
+}
+
+.pointer {
+  @apply cursor-pointer;
+}
+
+.bg-main {
+  background-color: #332532;
+}
+
+.t-main {
+  font-family: 'Asap', sans-serif;
+}
+
+.u {
+  @apply uppercase;
+}
+
+.bg-logo {
+  background-color: #f75239;
+}
+
+.bg-img {
+  @apply bg-cover bg-no-repeat bg-center;
+}
+
+.text-three-dots-wrapper {
+  @apply whitespace-nowrap overflow-hidden text-ellipsis;
+}
+
+.max-w-fit {
+  max-width: fit-content;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.t-wrap {
+  text-wrap: wrap;
+}
+
+.gradient-title {
+  background: linear-gradient(169.4deg, #3984f4 -6.01%, #0cd3ff 36.87%, #2f7cf0 78.04%, #0e65e8 103.77%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-title-alt {
+  background: linear-gradient(169.4deg, #f13ea2 -6.01%, #8926b3 36.87%, #2f7cf0 78.04%, #d013e2 103.77%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body::-webkit-scrollbar {
+  width: 14px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #F7BC01, #D56741);
+  width: 10px;
+  height: 80px;
+  border-radius: 26px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Alternative scrollbar */
+
+/* body::-webkit-scrollbar {
+  width: 14px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(169.4deg, #3984f4 -6.01%, #0cd3ff 36.87%, #2f7cf0 78.04%, #0e65e8 103.77%);
+  width: 10px;
+  height: 80px;
+  border-radius: 26px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+*/
+
+#navbar-portal-root {
+  display: block;
+  padding-top: 100px;
+  position: fixed;
+  top: 0;
+  width: fit-content;
+  height: 100%;
+  overflow: auto;
+  border-radius: 0.5rem;
+  z-index: 2;
+}
+
+.navbar-portal-content {
+  border: 1px solid #ccc;
+  position: fixed;
+  border-radius: 0.5rem;
+  padding: 10px;
+  -webkit-animation: fade-in-from-none 0.6s ease-in-out;
+  animation: fade-in-from-none 0.6s ease-in-out;
+  z-index: 40;
+  background: white;
+  color: #4B5563;
+}
+
+.bg-blue-gradient {
+  background: linear-gradient(136.91deg, #468ef9 -12.5%, #0c66ee 107.5%);
+}
+
+.t-primary {
+    @apply text-primary;
+}

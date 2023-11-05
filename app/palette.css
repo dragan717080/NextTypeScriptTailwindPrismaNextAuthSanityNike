@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --font: #030753;
+    --dark-blue: #163E6D;
+    --blue: #287EB6;
+    --light-blue: #54BBEB;
+    --light-orange: #F27C38;
+    --dark-orange: #D94B2B;
+    --light: #EEECE8;
+    --sand-grey: #CEC8BD;
+    --black: #202124;
+}

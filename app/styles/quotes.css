@@ -1,0 +1,37 @@
+.card {
+    height: 12rem;
+    width: 20rem;
+    background-color: #4a5568;
+    position: relative;
+}
+
+.card-title {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 120px;
+    position: absolute;
+    top: -1.75rem;
+}
+
+.text {
+    color: rgba(255, 255, 255, 0.3);
+    position: relative;
+    font-size: 20px;
+    margin: 110px 12px 0 12px;
+    line-height: 30px;
+}
+
+.card:hover {
+    box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.card:hover .card-title {
+    background: linear-gradient(45deg, #F7BC01, #D56741);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.card:hover .text {
+    color: #d5d5d5;
+}

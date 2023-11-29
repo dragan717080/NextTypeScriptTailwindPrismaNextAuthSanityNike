@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-const ResourcesToolbar: FC = () => {
+const NewsToolbar: FC = () => {
   return (
-    <div>ResourcesToolbar</div>
+    <div>New Items On Sale Now 🔥</div>
   )
 }
 
-ResourcesToolbar.displayName = 'ResourcesToolbar';
+NewsToolbar.displayName = 'NewsToolbar';
 
-export default ResourcesToolbar;
+export default NewsToolbar;

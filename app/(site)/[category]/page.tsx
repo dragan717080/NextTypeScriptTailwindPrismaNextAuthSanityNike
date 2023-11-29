@@ -1,44 +1,41 @@
-import { FC } from 'react';
+import { FC } from "react";
 import Link from "next/link";
-import { client } from "@/app/libs/sanity";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { Product } from '../interfaces';
+import { client } from "@/app/libs/sanity";
+import { Product } from "@/app/interfaces";
 
-async function getData(): Promise<Product[]> {
-  const query = `*[_type == 'product'][0..3] | order(_createdAt desc) {
-    _id,
-    name,
-    price,
-    "slug": slug.current,
-    "categoryName": category->name,
-    "imageUrl": images[0].asset->url,
-  }`;
+async function getData(category: string): Promise<Product[]> {
+  const query = `*[_type == "product" && category->name == "${category}"] {
+      _id,
+      "imageUrl": images[0].asset->url,
+      price,
+      name,
+      "slug": slug.current,
+      "categoryName": category->name
+    }`;
 
-  return await client.fetch(query);
+  const data = await client.fetch(query);
+
+  return data;
 }
 
-const Newest: FC = async () => {
+export const dynamic = "force-dynamic";
 
-  const data = await getData();
+const CategoryPage: FC<{ params: { category: string } }> = async ({ params }) => {
+  const data = await getData(params.category);
 
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 sm:px-6  lg:max-w-7xl lg:px-8">
         <div className="row-v justify-between">
           <h2 className="text-2xl bold tracking-tight text-gray-900">
-            Our Newest products
+            Our Products for {params.category}
           </h2>
-          <Link className="text-primary row-v gap-x-1" href="/all">
-            See All{" "}
-            <span>
-              <ArrowRight />
-            </span>
-          </Link>
         </div>
+
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {data.map((product) => (
-            <div key={product._id} className="group relative">
+          {data.map((product, index) => (
+            <div key={index} className="group relative">
               <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
                 <Link href={`/product/${product.slug}`}>
                   <Image
@@ -50,9 +47,10 @@ const Newest: FC = async () => {
                   />
                 </Link>
               </div>
+
               <div className="mt-4 flex justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700 text-primary">
+                  <h3 className="text-sm text-gray-700">
                     <Link href={`/product/${product.slug}`}>
                       {product.name}
                     </Link>
@@ -70,7 +68,7 @@ const Newest: FC = async () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Newest;
+export default CategoryPage;

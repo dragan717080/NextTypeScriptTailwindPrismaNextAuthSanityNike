@@ -171,9 +171,7 @@ body::-webkit-scrollbar-thumb {
   background-clip: padding-box;
 }
 
-/* Alternative scrollbar */
-
-/* body::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 14px;
 }
 
@@ -182,14 +180,13 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(169.4deg, #3984f4 -6.01%, #0cd3ff 36.87%, #2f7cf0 78.04%, #0e65e8 103.77%);
+  background: linear-gradient(45deg, #410EB9, #7C3AED, #9E52FF);
   width: 10px;
   height: 80px;
   border-radius: 26px;
   border: 1px solid transparent;
   background-clip: padding-box;
 }
-*/
 
 #navbar-portal-root {
   display: block;

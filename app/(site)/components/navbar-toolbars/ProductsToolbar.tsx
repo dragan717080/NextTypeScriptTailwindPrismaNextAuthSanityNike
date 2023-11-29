@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 const ProductsToolbar: FC = () => {
   return (
-    <div>ProductsToolbar</div>
+    <div>Innovative products to inspire athletes</div>
   )
 }
 

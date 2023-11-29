@@ -7,7 +7,7 @@ interface HeaderMenuToolbarProps {
 const HeaderMenuToolbar: FC<HeaderMenuToolbarProps> = ({ isOpen }) => {
   return (
     <div
-      className={`absolute rounded-lg bg-lightgray py-4 px-7 left-[-8.125rem] transition-transform z-40 bg-white
+      className={`absolute rounded-lg text-primary py-4 px-7 left-[-8.125rem] transition-transform z-40 bg-white
       ${isOpen ? 'top-12' : 'translate-down-gradually'}`
     }
     >

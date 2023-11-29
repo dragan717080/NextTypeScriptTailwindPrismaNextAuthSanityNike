@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import ToasterContext from './context/ToasterContext';
 import AuthContext from './context/AuthContext';
-import { CartProvider, CartModal } from './(site)/components';
+import { CartProvider, CartModal, Header } from './(site)/components';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,15 +28,25 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
 
       <body>
-        <div className="col-v min-h-screen">
-          <AuthContext>
-            <ToasterContext />
-            <CartProvider>
-              {children}
-            </CartProvider>
-          </AuthContext>
+        <div>
+          <section className="col-h justify-between min-w-[100%]">
+            <div className='relative'>
+              <div id="navbar-portal-root" className='mt-[-6px]'></div>
+              <div id="__next"></div>
+            </div>
+          </section>
         </div>
+        <AuthContext>
+          <ToasterContext />
+          <CartProvider>
+            <Header />
+            <CartModal />
+            <div className="col-v min-h-screen">
+              {children}
+            </div>
+          </CartProvider>
+        </AuthContext>
       </body>
-    </html>
+    </html >
   )
 }

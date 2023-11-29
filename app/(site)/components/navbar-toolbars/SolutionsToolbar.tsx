@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-const SolutionsToolbar: FC = () => {
+const AccessoriesToolbar: FC = () => {
   return (
-    <div>SolutionsToolbar</div>
+    <div>Accessories built from sustainable materials</div>
   )
 }
 
-SolutionsToolbar.displayName = 'SolutionsToolbar';
+AccessoriesToolbar.displayName = 'AccessoriesToolbar';
 
-export default SolutionsToolbar;
+export default AccessoriesToolbar;

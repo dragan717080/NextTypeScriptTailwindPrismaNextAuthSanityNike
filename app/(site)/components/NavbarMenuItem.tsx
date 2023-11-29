@@ -23,7 +23,6 @@ const NavbarMenuItem: FC<NavbarMenuItemProps> = ({ ComponentToRender, index }) =
   }
 
   const navbarPortalStyling = getNavbarPortalStyling();
-  //console.log('navbarPortalStyling', navbarPortalStyling)
   if (!ComponentToRender.displayName) 
     ComponentToRender.displayName = 'Add display name to this component';
 

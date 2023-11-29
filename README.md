@@ -1,4 +1,6 @@
-# Data Monitoring App
+# Nike App
+
+Sports wear website built with Next.js, TypeScript, Tailwind, MongoDB, NextAuth.js, Prisma and Sanity.
 
 ## Technologies Used
 
@@ -26,6 +28,10 @@ NextAuth.js is an authentication library for Next.js applications. It supports v
 
 Prisma is an innovative database toolkit that simplifies database access and management. It provides a type-safe and intuitive way to interact with the database using a powerful ORM (Object-Relational Mapping) layer.
 
+- **Sanity**
+
+Sanity is a headless CMS that gives totally composable, fully decoupled, real-time content back end. It has entirely customizable content workspaces.
+
 The goal of using these technologies is to create a high-performing, modern and scalable application.
 
 Please refer to the respective documentation of each technology for more in-depth details and usage instructions.
@@ -50,6 +56,8 @@ GOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET
 3. Run `npm install`
 
 4. Run `npm run dev`
+
+5. Prisma is configured to run from `/studio` route
 
 ## Customize the app
 

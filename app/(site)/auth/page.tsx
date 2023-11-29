@@ -14,7 +14,7 @@ import axios from 'axios';
 
 const AuthForm: FC = () => {
 
-  const [variant, setVariant] = useState<AuthVariant>('LOGIN');
+  const [variant, setVariant] = useState<AuthVariant>('REGISTER');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const session = useSession();
   const router = useRouter();
@@ -95,7 +95,9 @@ const AuthForm: FC = () => {
     <div className="col-v min-h-screen py-12 sm:px-6 lg:px-8 bg-gray-100">
     <div className="sm:mx-auto sm:w-full sm:max-w-md">
       <Image height="48" width="48" alt="Logo" className="h-12 w-15.5 mx-auto" src="/assets/images/logo.webp" />
-      <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+      <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+        {variant === 'REGISTER' ? 'Sign up': 'Sign in to your account'}
+      </h2>
     </div>
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">

@@ -48,7 +48,6 @@ const CartModal = () => {
           <SheetTitle className="mt-auto mb-auto">Shopping Cart</SheetTitle>
           <Button className='bg-primary text-white ml-auto' onClick={(e) => clearAll(e)}>Clear All</Button>
         </SheetHeader>
-
         <div className="h-full flex flex-col justify-between">
           <div className="mt-8 flex-1 overflow-y-auto">
             <ul className="-my-6 divide-y divide-gray-200">
@@ -111,7 +110,6 @@ const CartModal = () => {
               )}
             </ul>
           </div>
-
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <div className="flex justify-between text-base font-medium text-gray-900">
               <p>Subtotal:</p>
@@ -120,13 +118,11 @@ const CartModal = () => {
             <p className="mt-0.5 text-sm text-gray-500">
               Shipping and taxes are calculated at checkout.
             </p>
-
             <div className="mt-6">
               <Button onClick={handleCheckoutClick} className="w-full">
                 Checkout
               </Button>
             </div>
-
             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
               <p>
                 OR{" "}

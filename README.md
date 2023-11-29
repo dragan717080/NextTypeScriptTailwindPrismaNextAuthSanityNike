@@ -69,4 +69,4 @@ Customize the app to suit your needs!
 
 ## App hosted on Vercel
 
-https://analytics-automation-charts-dragan717.vercel.app/
+https://nike-three-black.vercel.app/

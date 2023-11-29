@@ -27,6 +27,7 @@ export const dynamic = "force-dynamic";
 const ProductPage: FC<{ params: { slug: string } }> = async ({ params }) => {
 
   const data = await getData(params.slug);
+  console.log(data);
 
   return (
     <div className="bg-white">
@@ -48,7 +49,7 @@ const ProductPage: FC<{ params: { slug: string } }> = async ({ params }) => {
                 <Star className="h-5 w-5" />
               </Button>
               <span className="text-sm text-gray-500 transition duration-100">
-                56 Ratings
+                56 ratings
               </span>
             </div>
             <div className="mb-4">
@@ -64,13 +65,13 @@ const ProductPage: FC<{ params: { slug: string } }> = async ({ params }) => {
             </div>
             <div className="flex gap-2.5">
               <AddToBag
+                sku={data.slug}
                 currency="USD"
                 description={data.description}
                 image={data.images[0]}
                 name={data.name}
                 price={data.price}
                 key={v4()}
-                price_id={data.price_id}
               />
             </div>
             <p className="mt-12 text-base text-gray-500 tracking-wide">

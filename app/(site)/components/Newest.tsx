@@ -3,7 +3,7 @@ import Link from "next/link";
 import { client } from "@/app/libs/sanity";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { Product } from '../interfaces';
+import { Product } from '@/app/interfaces';
 
 async function getData(): Promise<Product[]> {
   const query = `*[_type == 'product'][0..3] | order(_createdAt desc) {

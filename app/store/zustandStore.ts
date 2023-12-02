@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { AuthStore, HeaderBurgerMenuStore, NavbarPortalStore, 
-  SearchInputStore, ProductsStore, ProductsMatchingInputStore } from '@/app/interfaces/Zustand';
+  SearchInputStore, ProductsStore, ProductsMatchingInputStore, ShirtStore } 
+  from '@/app/interfaces/Zustand';
 
 export const useHeaderBurgerMenuStore = create<HeaderBurgerMenuStore>((set) => ({
   isHeaderBurgerMenuOpen: false,
@@ -48,3 +49,14 @@ export const useProductsStore = create<ProductsStore>()(persist(
     storage: createJSONStorage(() => localStorage),
   }
 ));
+
+export const useShirtStore = create((set) => ({
+  intro: true,
+  color: '#EFBD48',
+  isLogoTexture: true,
+  isFullTexture: false,
+  logoDecal: './assets/images/threejs.png',
+  fullDecal: './assets/images/threejs.png',
+  
+  setDynamicState: (property, value) => set((state) => ({ ...state, [property]: value })),
+}));

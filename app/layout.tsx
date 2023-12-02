@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import ToasterContext from './context/ToasterContext';
 import AuthContext from './context/AuthContext';
-import { CartProvider, CartModal, Header } from './(site)/components';
+import { CartProvider } from './(site)/components';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -39,8 +39,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <AuthContext>
           <ToasterContext />
           <CartProvider>
-            <Header />
-            <CartModal />
             <div className="col-v min-h-screen">
               {children}
             </div>

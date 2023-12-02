@@ -12,7 +12,7 @@ const HeaderMenuToolbar: FC<HeaderMenuToolbarProps> = ({ isOpen }) => {
     }
     >
       <ul className='gradient-title-alt'>
-        {['Products', 'Solutions', 'Resources'].map((item, index) => (
+        {['Shirt', 'Products', 'News'].map((item, index) => (
           <li key={index} className='gradient-title-alt'>
             {item}
           </li>

@@ -10,7 +10,7 @@ import ArrowIcon from './svgs/ArrowIcon';
 import Link from 'next/link';
 import Image from 'next/image';
 import { HeaderMenuToolbar } from './navbar-toolbars';
-import { useHeaderBurgerMenuStore } from '@/store/zustandStore';
+import { useHeaderBurgerMenuStore } from '@/app/store/zustandStore';
 
 const Header: FC = () => {
   const session = useSession();

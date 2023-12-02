@@ -36,8 +36,6 @@ const CartModal = () => {
   const clearAll = (e: MouseEvent) => clearCart();
 
   const handleSetQuantity = (quantity: number, entry: Cart) => {
-    console.log(entry.sku);
-    console.log(setItemQuantity);
     setItemQuantity(entry.sku, quantity);
   }
 

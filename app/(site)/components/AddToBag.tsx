@@ -11,7 +11,6 @@ export default function AddToBag({ sku, currency, description, image, name,
   const { addItem, handleCartClick } = useShoppingCart();
 
   const product = { name, description, price, currency, image: urlFor(image).url(), sku };
-  console.log(product);
 
   return (
     <Button onClick={() => { addItem(product), handleCartClick() }}>

@@ -6,11 +6,11 @@ import { useSession } from 'next-auth/react';
 import { MagnifyingGlassIcon, GlobeAltIcon, UserCircleIcon, UsersIcon } from '@heroicons/react/24/outline';
 import { signOut } from 'next-auth/react';
 import NavbarMenuItem from './NavbarMenuItem';
-import { ProductsToolbar, SolutionsToolbar, ResourcesToolbar } from './navbar-toolbars';
+import { ProductsToolbar, ShirtToolbar, NewsToolbar } from './navbar-toolbars';
 
 const Navbar: FC = () => {
 
-  const toolbarComponents = [ProductsToolbar, SolutionsToolbar, ResourcesToolbar];
+  const toolbarComponents = [ShirtToolbar, ProductsToolbar, NewsToolbar];
 
   return (
     <nav className="hidden md:flex h-30 px-14 md:pl-1 md:pr-2 lg:px-14">

@@ -27,7 +27,6 @@ export const dynamic = "force-dynamic";
 const ProductPage: FC<{ params: { slug: string } }> = async ({ params }) => {
 
   const data = await getData(params.slug);
-  console.log(data);
 
   return (
     <div className="bg-white">

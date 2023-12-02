@@ -1,4 +1,6 @@
 import { Prisma } from "@prisma/client";
+import { GLTF } from "three-stdlib";
+import { MeshStandardMaterial } from 'three';
 
 type AuthVariant = 'LOGIN' | 'REGISTER';
 
@@ -27,4 +29,9 @@ type FindArgs = any;
 //replace with prisma find args e.g. Prisma.UserWhereInput | Prisma.UserWhereUniqueInput | Prisma.SomeOtherModelWhereInput | Prisma.SomeOtherModelWhereUniqueInput | 
 type WhereInput = any;
 
-export type { AuthVariant, StringObject, MongoObjectIDKey, MongoItem, FindArgs, WhereInput, QueryOptions, AccWithTag };
+type GLTFRes = GLTF & {
+  nodes: any;
+  materials: { [materialName: string]: MeshStandardMaterial }
+}
+
+export type { AuthVariant, StringObject, MongoObjectIDKey, MongoItem, FindArgs, WhereInput, QueryOptions, AccWithTag, GLTFRes };

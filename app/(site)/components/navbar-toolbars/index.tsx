@@ -1,4 +1,4 @@
 export { default as ProductsToolbar } from './ProductsToolbar';
-export { default as SolutionsToolbar } from './SolutionsToolbar';
-export { default as ResourcesToolbar } from './ResourcesToolbar';
+export { default as ShirtToolbar } from './ShirtToolbar';
+export { default as NewsToolbar } from './NewsToolbar';
 export { default as HeaderMenuToolbar } from './HeaderMenuToolbar';

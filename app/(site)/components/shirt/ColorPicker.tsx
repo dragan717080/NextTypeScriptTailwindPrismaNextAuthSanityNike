@@ -16,7 +16,7 @@ const ColorPicker = () => {
       <SketchPicker 
         color={color}
         disableAlpha
-        onChange={(color) => { console.log(color.hex); setDynamicState('color', color.hex); }}
+        onChange={(color) => setDynamicState('color', color.hex) }
       />
     </div>
   )

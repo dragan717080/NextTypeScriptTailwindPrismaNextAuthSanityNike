@@ -5,8 +5,11 @@ import { download } from '@/public/assets/images';
 import { downloadCanvasToImage, reader } from '@/app/config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '@/app/config/constants';
 import { fadeAnimation, slideAnimation } from '@/app/config/motion';
-import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '.';
+import { ColorPicker, CustomButton, FilePicker, Tab } from '.';
 import { useShirtStore } from '@/app/store/zustandStore';
+import Link from 'next/link';
+import { DecalFilterType, DecalTabType, DecalType } from '@/app/interfaces/types';
+import { EditorTab } from '@/app/interfaces/props/TabProps';
 
 const Customizer = () => {
   let { intro, color, isLogoTexture, isFullTexture, logoDecal, fullDecal, setDynamicState } = useShirtStore();
@@ -22,7 +25,7 @@ const Customizer = () => {
     stylishShirt: false,
   })
 
-  // show tab content depending on the activeTab
+  // Show tab content depending on the activeTab
   const generateTabContent = () => {
     switch (activeEditorTab) {
       case "colorpicker":
@@ -33,19 +36,12 @@ const Customizer = () => {
           setFile={setFile}
           readFile={readFile}
         />
-      case "aipicker":
-        return <AIPicker
-          prompt={prompt}
-          setPrompt={setPrompt}
-          generatingImg={generatingImg}
-          handleSubmit={handleSubmit}
-        />
       default:
         return null;
     }
   }
 
-  const handleSubmit = async (type) => {
+  const handleSubmit = async (type: string) => {
     if (!prompt) return alert("Please enter a prompt");
 
     try {
@@ -71,17 +67,16 @@ const Customizer = () => {
     }
   }
 
-  const handleDecals = (type, result) => {
-    const decalType = DecalTypes[type];
+  const handleDecals = (type: DecalTabType, result: string) => {
+    const decalType = DecalTypes[type] as { stateProperty: string; filterTab: DecalFilterType };
 
     setDynamicState(decalType.stateProperty, result);
-
     if (!activeFilterTab[decalType.filterTab]) {
       handleActiveFilterTab(decalType.filterTab)
     }
   }
 
-  const handleActiveFilterTab = (tabName) => {
+  const handleActiveFilterTab = (tabName: DecalFilterType) => {
     switch (tabName) {
       case 'logoShirt':
         setDynamicState('isLogoTexture', !activeFilterTab[tabName]);
@@ -95,8 +90,7 @@ const Customizer = () => {
         break;
     }
 
-    // after setting the state, activeFilterTab is updated
-
+    // After setting the state, activeFilterTab is updated
     setActiveFilterTab((prevState) => {
       return {
         ...prevState,
@@ -105,14 +99,18 @@ const Customizer = () => {
     })
   }
 
-  const readFile = (type) => {
+  const readFile = (type: DecalTabType | undefined) => {
     if (!file) {
       return;
     }
 
-    reader(file)
+    reader(file as unknown as File)
       .then((result) => {
-        handleDecals(type, result);
+        if (!type) {
+          return;
+        }
+
+        handleDecals(type, result as unknown as string);
         setActiveEditorTab("");
       })
   }
@@ -128,31 +126,29 @@ const Customizer = () => {
           >
             <div className="flex items-center min-h-screen">
               <div className="editortabs-container tabs">
-                {EditorTabs.map((tab) => (
+                {EditorTabs.map((tab: EditorTab) => (
                   <Tab
                     key={tab.name}
                     tab={tab}
-                    handleClick={() => setActiveEditorTab(tab.name)}
+                    handleClick={() => setActiveEditorTab(tab.name as DecalFilterType)}
                   />
                 ))}
-
                 {generateTabContent()}
               </div>
             </div>
           </motion.div>
-
           <motion.div
             className="absolute z-10 top-5 right-5"
             {...fadeAnimation}
           >
-            <CustomButton
-              type="filled"
-              title="Go Back"
-              handleClick={() => intro = true}
-              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
-            />
+            <Link href='/'>
+              <CustomButton
+                type="filled"
+                title="Go Back"
+                customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+              />
+            </Link>
           </motion.div>
-
           <motion.div
             className='filtertabs-container'
             {...slideAnimation("up")}
@@ -162,8 +158,8 @@ const Customizer = () => {
                 key={tab.name}
                 tab={tab}
                 isFilterTab
-                isActiveTab={activeFilterTab[tab.name]}
-                handleClick={() => handleActiveFilterTab(tab.name)}
+                isActiveTab={activeFilterTab[tab.name as DecalFilterType]}
+                handleClick={() => handleActiveFilterTab(tab.name as DecalFilterType)}
               />
             ))}
           </motion.div>

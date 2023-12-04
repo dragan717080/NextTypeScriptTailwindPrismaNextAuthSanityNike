@@ -31,3 +31,13 @@ export interface ProductsMatchingInputStore {
   productsMatchingInput: Product[];
   setProductsMatchingInput: (value: Product[]) => void
 }
+
+export interface ShirtStore {
+  intro: boolean;
+  color: string;
+  isLogoTexture: boolean;
+  isFullTexture: boolean;
+  logoDecal: string;
+  fullDecal: string;
+  setDynamicState: (property: string, value: boolean|string) => void;
+}

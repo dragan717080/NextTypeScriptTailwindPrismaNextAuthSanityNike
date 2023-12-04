@@ -34,4 +34,14 @@ type GLTFRes = GLTF & {
   materials: { [materialName: string]: MeshStandardMaterial }
 }
 
-export type { AuthVariant, StringObject, MongoObjectIDKey, MongoItem, FindArgs, WhereInput, QueryOptions, AccWithTag, GLTFRes };
+type DecalTabType = 'logo' | 'full';
+
+type DecalFilterType = 'logoShirt' | 'stylishShirt';
+
+type DecalType = {
+  [k in DecalTabType]: { stateProperty: string; filterTab: DecalFilterType };
+};
+
+type MotionDirection = 'up' | 'down' | 'right' | 'left';
+
+export type { AuthVariant, StringObject, MongoObjectIDKey, MongoItem, FindArgs, WhereInput, QueryOptions, AccWithTag, GLTFRes, DecalType, DecalTabType, DecalFilterType, MotionDirection };

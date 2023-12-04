@@ -1,12 +1,16 @@
 # Nike App
 
-Sports wear website built with Next.js, TypeScript, Tailwind, MongoDB, NextAuth.js, Prisma, Zustand and Sanity.
+Sports wear website built with Next.js, Three.js, TypeScript, Tailwind, MongoDB, NextAuth.js, Prisma, Zustand, FramerMotion and Sanity.
 
 ## Technologies Used
 
 - **Next.js**
 
 Next.js is a React framework for building modern web applications. It provides server-side rendering (SSR) and static site generation (SSG) capabilities, resulting in faster page loads and improved SEO. Next.js simplifies the development process and offers features like automatic code splitting, routing, and hot module replacement.
+
+- **Three.js**
+
+Three.js is a JavaScript library for creating 3D graphics in the browser. It provides a higher-level abstraction for building interactive 3D experiences. It offers a variety of controls, geometries, materials, and lights, adding a 3D layer of interactivity and visual appeal.
 
 - **TypeScript**
 
@@ -31,6 +35,10 @@ Prisma is an innovative database toolkit that simplifies database access and man
 - **Zustand**
 
 Zustand is a global state management for React/Next.js applications. It is more modern and more performant than Redux.
+
+- **Framer Motion**
+
+Framer Motion is a React/Next.js animation library that empowers creation of stunning, high-performance animations with ease. It seamlessly integrates with components, providing a declarative and intuitive API for creating fluid and interactive user interfaces.
 
 - **Sanity**
 

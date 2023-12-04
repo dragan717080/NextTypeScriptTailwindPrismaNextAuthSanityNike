@@ -11,3 +11,6 @@ export { default as AddToBag } from './AddToBag';
 export { default as CheckoutNow } from './CheckoutNow';
 export { default as ImageGallery } from './ImageGallery';
 export { default as CartProvider } from './CartProvider';
+export { default as ShirtPromotionScene } from './ShirtPromotionScene';
+export { default as ShirtCanvas } from './ShirtCanvas';
+export { default as HeroMotion } from './HeroMotion';

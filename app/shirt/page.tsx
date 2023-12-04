@@ -4,7 +4,6 @@ import { Canvas } from '@react-three/fiber'
 import { Environment, Center } from '@react-three/drei';
 
 import { CanvasModel, Customizer } from '../(site)/components/shirt';
-import '../shirt.css';
 
 const Shirt = () => {
   return (

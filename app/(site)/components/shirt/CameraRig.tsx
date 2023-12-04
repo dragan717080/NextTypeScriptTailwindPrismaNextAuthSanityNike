@@ -5,6 +5,8 @@ import { useShirtStore } from '@/app/store/zustandStore';
 import { Group } from 'three';
 
 const CameraRig = ({ children }: { children: ReactNode }) => {
+  // This component is in charge of movements
+  
   const group = useRef<Group | null>(null!)
   const { intro } = useShirtStore();
 

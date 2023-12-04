@@ -136,6 +136,10 @@ body {
   font-weight: 700;
 }
 
+.extrabold {
+  @apply font-extrabold;
+}
+
 .t-wrap {
   text-wrap: wrap;
 }
@@ -154,7 +158,14 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-body::-webkit-scrollbar {
+.gradient-title-name {
+  background: linear-gradient(169.4deg, #c60c24 -6.01%, #960919 36.87%, #9a091a 78.04%, #3b040a 103.77%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* body::-webkit-scrollbar {
   width: 14px;
 }
 
@@ -169,7 +180,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 26px;
   border: 1px solid transparent;
   background-clip: padding-box;
-}
+} */
 
 body::-webkit-scrollbar {
   width: 14px;

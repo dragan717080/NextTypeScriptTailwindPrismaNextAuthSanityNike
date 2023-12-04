@@ -1,4 +1,5 @@
 import './globals.css';
+import './shirt.css';
 import './styles/animations.css';
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';

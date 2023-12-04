@@ -50,13 +50,13 @@ export const useProductsStore = create<ProductsStore>()(persist(
   }
 ));
 
-export const useShirtStore = create((set) => ({
+export const useShirtStore = create<ShirtStore>((set) => ({
   intro: true,
   color: '#EFBD48',
   isLogoTexture: true,
   isFullTexture: false,
-  logoDecal: './assets/images/threejs.png',
-  fullDecal: './assets/images/threejs.png',
+  logoDecal: './assets/images/logo.webp',
+  fullDecal: './assets/images/logo.webp',
   
   setDynamicState: (property, value) => set((state) => ({ ...state, [property]: value })),
 }));

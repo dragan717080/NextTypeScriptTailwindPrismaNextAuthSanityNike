@@ -1,12 +1,12 @@
 import React from 'react'
 import { useShirtStore } from '@/app/store/zustandStore';
 import { getContrastingColor } from '@/app/config/helpers';
-import Link from 'next/link';
+import CustomButtonProps from '@/app/interfaces/props/CustomButtonProps';
 
-const CustomButton = ({ type, title, customStyles, handleClick }) => {
+const CustomButton = ({ type, title, customStyles, handleClick }: CustomButtonProps) => {
   const { color } = useShirtStore();
 
-  const generateStyle = (type) => {
+  const generateStyle = (type: string) => {
     if (type === 'filled') {
       return {
         backgroundColor: color,
@@ -23,16 +23,14 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
   }
 
   return (
-    <Link href="/">
-      <button
-        className={`px-2 py-1.5 flex-1 rounded-md ${customStyles}`}
-        style={generateStyle(type)}
-        onClick={handleClick}
-      >
-        {title}
-      </button>
-    </Link>
+    <button
+      className={`px-2 py-1.5 flex-1 rounded-md ${customStyles}`}
+      style={generateStyle(type)}
+      onClick={handleClick}
+    >
+      {title}
+    </button>
   )
 }
 
-export default CustomButton
+export default CustomButton;

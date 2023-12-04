@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
+import CustomButton from './CustomButton';
+import FilePickerProps from '@/app/interfaces/props/FilePickerProps';
 
-import CustomButton from './CustomButton'
-
-const FilePicker = ({ file, setFile, readFile }) => {
+const FilePicker = ({ file, setFile, readFile }: FilePickerProps) => {
   return (
     <div className="filepicker-container">
       <div className="flex-1 flex flex-col">
@@ -10,17 +10,15 @@ const FilePicker = ({ file, setFile, readFile }) => {
           id="file-upload"
           type="file"
           accept="image/*"
-          onChange={(e) => setFile(e.target.files[0])}
+          onChange={(e) => setFile((e.target.files as FileList)[0] as unknown as string)}
         />
         <label htmlFor="file-upload" className="filepicker-label">
           Upload File
         </label>
-
         <p className="mt-2 text-gray-500 text-xs truncate">
-          {file === '' ? "No file selected" : file.name}
+          {file === '' ? "No file selected" : (file as File).name}
         </p>
       </div>
-
       <div className="mt-4 flex flex-wrap gap-3">
         <CustomButton 
           type="outline"

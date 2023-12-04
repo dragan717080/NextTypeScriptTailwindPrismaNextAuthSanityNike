@@ -1,7 +1,9 @@
 import React from 'react'
 import { useShirtStore }  from '@/app/store/zustandStore';
+import Image from 'next/image';
+import TabProps from '@/app/interfaces/props/TabProps';
 
-const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) => {
+const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }: TabProps) => {
   const { color } = useShirtStore();
 
   const activeStyles = isFilterTab && isActiveTab 
@@ -15,7 +17,9 @@ const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) => {
       onClick={handleClick}
       style={activeStyles}
     >
-      <img 
+      <Image
+        height={52}
+        width={52}
         src={tab.icon.src}
         alt={tab.name}
         className={`${isFilterTab ? 'w-2/3 h-2/3' : 'w-11/12 h-11/12 object-contain'}`}

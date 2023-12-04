@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <AuthContext>
           <ToasterContext />
           <CartProvider>
-            <div className="col-v min-h-screen">
+            <div className="">
               {children}
             </div>
           </CartProvider>

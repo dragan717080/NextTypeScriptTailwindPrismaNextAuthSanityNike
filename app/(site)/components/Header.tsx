@@ -67,6 +67,14 @@ const Header: FC = () => {
     setSearchInput(searchRef.current!.value);
   };
 
+  const getSearchPlaceholder = () => {
+    if (typeof(window) === 'undefined' || window.innerWidth > 700) {
+      return 'Start your search';
+    }
+
+    return 'Search';
+  }
+
   return (
     <header className='sticky top-0 z-40 bg-white shadow-lg py-3 px-4 md:px-10 xl:px-[15rem] 2xl:px-[22rem] text-gray-600'>
       <div className="row">
@@ -94,7 +102,7 @@ const Header: FC = () => {
         <div className='row-v min-w-[30%] md:min-w-[14rem] xl:min-w-[17rem] 2xl:min-w-[20rem] xs:py-1 pt-2.5 pb-2 xs:border-2 rounded-full md:shadow-sm xs:mx-6'>
           <input
             type="text"
-            placeholder='Start your search'
+            placeholder={getSearchPlaceholder()}
             className='ml-1 pl-4 border-none outline-none bg-transparent flex-grow text-sm placeholder-gray-300'
             onChange={handleInputChange}
             ref={searchRef}
@@ -102,14 +110,16 @@ const Header: FC = () => {
           />
           <MagnifyingGlassIcon className='h-8 mr-2 p-2 bg-primary rounded-full text-white pointer hidden xs:inline-flex xs:mx-2' />
         </div>
-        <div className='row-v space-x-4 md:ml-auto semibold'>
+        <ShoppingCart className='pointer md:ml-4 lg:ml-7' onClick={() => handleCartClick()} />
+        <div className='row-v space-x-4 text-gray-600 semibold ml-4 mr-2 md:ml-10 lg:ml-10 sm:ml-0'>
           {session.status === 'authenticated'
             ? <div className='inline-flex'>
-              <div className='t-red'>{session.data!.user!.name}</div>
+              <UserCircleIcon className='w-4 ml-5 mr-2 hidden md:block' />
+              <div className='t-red md:pr-1 max-w-[9rem] text-ellipsis overflow-hidden hidden md:block'>{session.data!.user!.email}</div>
               <button className='t-cornflowerblue ml-3' onClick={async () => await signOut()} >Logout</button>
             </div>
-            : <div className='md:pl-3 lg:pl-0 2xl:pr-4 hover:text-primary pr-2 md:pr-16'>
-              <Link href='auth' onClick={onAuthLinkClick}>
+            : <div className='md:pl-3 lg:pl-6 2xl:pr-4 hover:text-primary pr-2 md:pr-16'>
+              <Link href='auth' onClick={(e) => onLinkClick(e)}>
                 Login
               </Link>
             </div>

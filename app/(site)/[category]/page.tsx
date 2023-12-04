@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/app/libs/sanity";
 import { Product } from "@/app/interfaces";
+import { Header, Footer, CartModal } from "../components";
 
 async function getData(category: string): Promise<Product[]> {
   const query = `*[_type == "product" && category->name == "${category}"] {
@@ -25,7 +26,10 @@ const CategoryPage: FC<{ params: { category: string } }> = async ({ params }) =>
   const data = await getData(params.category);
 
   return (
-    <div className="bg-white">
+    <div className="col-v min-h-screen">
+    <Header />
+    <CartModal />
+    <main className='bg-white flex-1 mt-12 ml-0'>
       <div className="mx-auto max-w-2xl px-4 sm:px-6  lg:max-w-7xl lg:px-8">
         <div className="row-v justify-between">
           <h2 className="text-2xl bold tracking-tight text-gray-900">
@@ -67,6 +71,8 @@ const CategoryPage: FC<{ params: { category: string } }> = async ({ params }) =>
           ))}
         </div>
       </div>
+    </main>
+    <Footer />
     </div>
   );
 }

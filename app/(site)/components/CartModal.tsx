@@ -57,7 +57,7 @@ const CartModal = () => {
                     <li key={index} className="flex py-6">
                       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                         <Image
-                          src={entry.image as string}
+                          src={entry.src as string}
                           alt="Product image"
                           width={100}
                           height={100}

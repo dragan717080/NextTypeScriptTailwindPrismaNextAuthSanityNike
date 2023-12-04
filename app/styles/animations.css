@@ -351,6 +351,7 @@
 
 .auto-link-tkr:hover .auto-link-name {
     top: 7rem;
+    transition: top 0.5s;
 }
 
 .auto-link-tkr:hover .auto-link-subtext {
@@ -367,6 +368,7 @@
 .auto-link-tkr .auto-link-name {
     top: 0;
     position: relative;
+    transition: top 0.3s;
 }
 
 .auto-link-tkr .auto-link-subtext {
